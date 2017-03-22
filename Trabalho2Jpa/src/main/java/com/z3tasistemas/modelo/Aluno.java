@@ -41,6 +41,11 @@ public class Aluno extends BaseEntity<Long>{
 	
 	public Aluno() {}
 
+	public Aluno(Long id, String nome) {
+		super();
+		this.id = id;
+		this.nome = nome;
+	}
 	public Aluno(Long id, String nome, String rg, List<Historico> notas) {
 		super();
 		this.id = id;

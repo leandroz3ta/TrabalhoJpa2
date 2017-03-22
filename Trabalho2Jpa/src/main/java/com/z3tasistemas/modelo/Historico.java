@@ -60,8 +60,9 @@ public class Historico extends BaseEntity<Long>{
 		return aluno;
 	}
 
-	public void setAluno(Aluno aluno) {
+	public Historico setAluno(Aluno aluno) {
 		this.aluno = aluno;
+				return this;
 	}
 
 	public List<Materia> getMaterias() {
