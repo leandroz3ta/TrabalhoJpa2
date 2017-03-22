@@ -40,12 +40,12 @@ public class AlunoTest extends Basetest{
 		
 		String filtro  = "Nonato";
 		
-		Query query = em.createQuery("SELECT a.rg_aluno FROM Aluno a WHERE a.nome_aluno LIKE :nome");
+		Query query = em.createQuery("SELECT a.rg FROM Aluno a WHERE a.nome LIKE :nome");
 		query.setParameter("nome", "%".concat(filtro).concat("%"));
 		
 		List<String>listaRG = query.getResultList();
 		
-		assertFalse("Verifica se há registros na lista", listaRG.isEmpty());
+		assertFalse("Verifica se hï¿½ registros na lista", listaRG.isEmpty());
 		
 		listaRG.forEach(rg -> LOGGER.info("\n\n============= RG: "+rg+"\n\n"));
 	}
@@ -55,12 +55,12 @@ public class AlunoTest extends Basetest{
 	public void deveConsultarAlunoComIdNome() {
 		salvarAluno();
 		
-		Query query = em.createQuery("SELECT new Aluno(a.id_aluno, a.nome_aluno) FROM Aluno a WHERE a.rg_aluno = :rg");
+		Query query = em.createQuery("SELECT new Aluno(a.id, a.nome) FROM Aluno a WHERE a.rg = :rg");
 		query.setParameter("RG", RG_PADRAO);
 		
 		List<Aluno> aluno = query.getResultList();
 		
-		assertFalse("verifica se há registros na lista", aluno.isEmpty());
+		assertFalse("verifica se hï¿½ registros na lista", aluno.isEmpty());
 		
 		aluno.forEach(alunos -> {
 			assertNull("verifica que o cpf deve estar null", alunos.getRg());

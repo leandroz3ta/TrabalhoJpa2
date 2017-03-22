@@ -41,11 +41,12 @@ public class Aluno extends BaseEntity<Long>{
 	
 	public Aluno() {}
 
-	public Aluno(String nome, String rg) {
+	public Aluno(Long id, String nome, String rg, List<Historico> notas) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.rg = rg;
+		this.notas = notas;
 	}
 
 	public Long getId() {
@@ -62,7 +63,7 @@ public class Aluno extends BaseEntity<Long>{
 
 	public Aluno setNome(String nome) {
 		this.nome = nome;
-				return this;
+		return this;
 	}
 
 	public String getRg() {
@@ -73,6 +74,13 @@ public class Aluno extends BaseEntity<Long>{
 		this.rg = rg;
 		return this;
 	}
-	
+
+	public List<Historico> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(List<Historico> notas) {
+		this.notas = notas;
+	}
 	
 }
